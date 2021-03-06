@@ -1,0 +1,27 @@
+<section ng-show="sucesso.length" class="alert alert-success">
+    <h4 class="alert-heading">Sucesso</h4>
+    <p>{{sucesso}}</p>
+    <hr>
+    <p class="mb-0">{{sucessoInstrucao}}</p>
+</section>
+
+<section ng-show="erro.length" class="alert alert-danger">
+    <h4 class="alert-heading">Erro</h4>
+    <p>{{erro}}</p>
+    <hr>
+    <p class="mb-0">Faça as correções e tente novamente.</p>
+</section>
+
+<section ng-show="informacao.length" class="alert alert-info">
+    <h4 class="alert-heading">Importante</h4>
+    <p>{{informacao}}</p>
+    <hr>
+    <p class="mb-0">{{informacaoInstrucao}}</p>
+</section>
+
+<section ng-show="atencao.length" class="alert alert-warning">
+    <h4 class="alert-heading">Atenção</h4>
+    <p>{{atencao}}</p>
+    <hr>
+    <p class="mb-0">{{atencaoInstrucao}}</p>
+</section>

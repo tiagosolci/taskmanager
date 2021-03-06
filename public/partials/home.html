@@ -1,0 +1,111 @@
+<body>
+    <task-nav></task-nav>
+    <painel-mensagens></painel-mensagens>
+    <main class="margin-home row">
+        <section class= "row">
+            <div ng-repeat="projeto in projetos">
+                <div class="project-card-repeat">
+                    <div class="project-jumb">
+                        <nav class="navbar navbar-light bg-light">
+                            <span ng-if="!projeto.editar" class="navbar-brand mb-0 h1">{{projeto.nome}}</span>
+                            <form ng-if="projeto.editar" class="form-inline">
+                                <input class="form-control mr-sm-2" placeholder="Nome do Projeto" aria-label="Editar" ng-model="projeto.nome">
+                                <a ng-click="atualizarProjeto(projeto)"  title="Salvar Projeto">
+                                    <img height="30" src="/images/save.svg">  
+                                </a>
+                              </form>
+                              <div class="atalhos-card">
+                                <a ng-if="!projeto.editar" ng-click="editarProjeto(projeto)" title="Editar Projeto">
+                                    <img  height="30" src="/images/pencil.svg">
+                                  </a>
+                                  <a ng-if="!projeto.editar" ng-click="deletarProjeto(projeto)" title="Deletar Projeto">
+                                    <img  height="30" src="/images/delete.svg">
+                                </a>
+                              </div>
+                            
+                          </nav>
+                          <section class="container">
+                            <h2 ng-if="projeto.tarefas">Pendente</h2>        
+                            <div ng-repeat="tarefa in projeto.tarefas">
+                                <ul class="list-group">
+                                    <li class="list-group" >
+                                        
+                                        <form ng-if="!tarefa.concluido && tarefa.editar" class="form-inline">
+                                            <input class="form-control mr-sm-2" placeholder="Nome da Tarefa" aria-label="Editar" ng-model="tarefa.nome">
+                                            <a ng-click="atualizarTarefa(tarefa)"  title="Salvar Tarefa">
+                                                <img height="30" src="/images/save.svg">  
+                                            </a>
+                                          </form>
+
+
+                                        <label ng-if="!tarefa.concluido && !tarefa.editar" class="list-group-item"><input ng-model='tarefa.concluido' ng-change="atualizarTarefa(tarefa)" type="checkbox"> 
+                                            {{tarefa.nome}}
+                                            <span class="float-right">
+                                                <a ng-if="!tarefa.editar" ng-click="editarTarefa(tarefa)" title="Editar Tarefa">
+                                                    <img  height="30" src="/images/pencil.svg">
+                                                  </a>
+                                                  <a ng-if="!tarefa.editar" ng-click="deletarTarefa(projeto,tarefa)" title="Deletar Tarefa">
+                                                    <img  height="30" src="/images/delete.svg">
+                                                </a>
+                                              </span>
+                                        </label>
+                                    </li>
+                                  </ul>
+                            </div>
+                            <h2>Concluído</h2>        
+                            <div ng-repeat="tarefa in projeto.tarefas">
+                                <ul class="list-group">
+
+                                    <form ng-if="tarefa.concluido && tarefa.editar" class="form-inline">
+                                        <input class="form-control mr-sm-2" placeholder="Nome da Tarefa" aria-label="Editar" ng-model="tarefa.nome">
+                                        <a ng-click="atualizarTarefa(tarefa)"  title="Salvar Tarefa">
+                                            <img height="30" src="/images/save.svg">  
+                                        </a>
+                                      </form>
+                                    <li class="list-group" >
+                                        <label ng-if="tarefa.concluido && !tarefa.editar" class="list-group-item"><input ng-model='tarefa.concluido' ng-change="atualizarTarefa(tarefa)" type="checkbox"> {{tarefa.nome}}
+                                            <span class="float-right">
+                                                <a ng-if="!tarefa.editar" ng-click="editarTarefa(tarefa)" title="Editar Tarefa">
+                                                    <img  height="30" src="/images/pencil.svg">
+                                                  </a>
+                                                  <a ng-if="!tarefa.editar" ng-click="deletarTarefa(projeto,tarefa)" title="Deletar Tarefa">
+                                                    <img  height="30" src="/images/delete.svg">
+                                                </a>
+                                              </span>
+                                        </label>
+                                    </li>
+                                  </ul>
+                            </div>
+
+                          </section>
+                        
+                    </div>
+                    <br>
+                    <div class="container adicionar-tarefa"> 
+                            <p class="form-inline">
+                                <input class="form-control mr-sm-2" ng-model="projeto.tarefa.nome" placeholder="Tarefa" aria-label="Adicionar Tarefa">
+                                <button class="btn btn-outline-success my-2 my-sm-0" ng-click="criarTarefa(projeto)">Adicionar </button>
+                            </p>
+                        </div>
+                    
+                  </div>
+                </div>
+
+                <section class="project-card">
+                    <div class="jumbotron">
+                        <h2 class="d-flex justify-content-center">Criar um novo projeto</h5>
+                        <div class="input-group input-group-lg">
+                            <input type="text" class="form-control" placeholder="Nome do projeto" ng-model="projeto.nome" name="nome" id="nome" required autofocus ng-maxlength="70">
+                        </div>
+                        <br>
+                        <p class="lead d-flex justify-content-center">
+                          <a class="btn btn-info btn-lg col-md-12" ng-click="criarProjeto()" role="button">Criar Projeto</a>
+                        </p>
+                        </div>
+                </section>   
+
+
+        </section>
+    
+    </main>
+</body>

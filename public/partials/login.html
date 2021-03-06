@@ -1,0 +1,35 @@
+<body>
+<main>
+    <painel-mensagens></painel-mensagens>
+    <section>
+        <h1 class="display-4 d-flex justify-content-center">Task Manager</h1>
+        <hr class="my-4">
+        <p class="mb-0 d-flex justify-content-center">Inicie a sua sessão</p>
+        <form name="form" ng-submit="logar()" novalidate>
+            <div class ="d-flex justify-content-center">
+                <div>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon"><img width="40" height="40" src="images/user.png"></span>
+                        <input type="text" class="form-control" placeholder="E-mail" ng-model="login.email" name="user" id="user" required autofocus ng-maxlength="20">
+                    </div>
+                    <div><span ng-show="form.$submitted && form.user.$error.required" class="alert alert-danger form-control">Digite um usuário</span></div>
+                    <div class="form-group">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon"><img width="40" height="40" src="images/password.png"></span>
+                            <input type="password" class="form-control" placeholder="Senha" ng-model="login.senha" type="password" id="password" name="password" required />
+                        </div>
+                        <div><span ng-show="form.$submitted && form.password.$error.required" class="alert alert-danger form-control">Digite a senha</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center form-group">
+                <button type="submit" class="col-md-4 btn btn-outline-success">Entrar</button>
+            </div>
+        </form>
+        <p class="mb-0 d-flex justify-content-center">Ainda não é usuário? Registre-se agora!</p>
+        <div class="d-flex justify-content-center">
+            <button ng-click="registrar()" class="col-md-4 btn btn-outline-info">Registrar</button>
+        </div>
+    </section>
+</main>
+</body>

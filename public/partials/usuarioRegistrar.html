@@ -1,0 +1,75 @@
+<body>
+
+
+<main>
+    <section><!-- Seção das mensagens de feedback ao usuário -->
+        <painel-mensagens></painel-mensagens>
+        <!-- Configuração de exibição das mensagens de erro -->
+        <div ng-show="(form.$submitted || form.nome.$dirty) && form.nome.$error.required ||
+      (form.$submitted || form.email.$dirty) && form.email.$error.required ||
+      (form.$submitted || form.senha.$dirty) && form.senha.$error.required ||
+      (form.$submitted || form.confirmacaoSenha.$dirty) && form.confirmacaoSenha.$error.required ||
+      (form.$submitted || form.email.$dirty) && form.email.$error.required" class="alert alert-danger">
+
+            <h4 class="alert-heading">Foram identificados um ou mais problemas no cadastro do cliente</h4>
+            <p>Verifique abaixo as correções necessárias e tente novamente.</p>
+            <hr>
+            <p class="mb-0"></p>
+            <p ng-show="(form.$submitted || form.nome.$dirty) && form.nome.$error.required">Informe o nome do usuário.</p>
+            <p ng-show="(form.$submitted || form.login.$dirty) && form.login.$error.required">Informe o e-mail do usuário.</p>
+            <p ng-show="(form.$submitted || form.senha.$dirty) && form.senha.$error.required">Digite a senha do usuário</p>
+            <p ng-show="(form.$submitted || form.confirmacaoSenha.$dirty) && form.confirmacaoSenha.$error.required">Digite a confirmação da senha.</p>
+            <p ng-show="(form.$submitted || form.email.$dirty) && form.email.$error.required">Informe o e-mail do usuário.</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <section class="container d-flex justify-content-center main-title">
+            <div>
+                <h1 class="display-6">Cadastrar Usuário</h1>
+            </div>
+        </section>
+
+        <section class="container">
+            <form name="form" ng-submit="registrar()" novalidate>
+                <div class="row">
+                    <div class="col md-12">
+
+                        <div class ="d-flex justify-content-center">
+                            <div>
+                                <label>Nome</label>
+                                <div class="input-group input-group-lg">
+                                        <input name='nome' required ng-model="usuario.nome" type="text" class="form-control">
+                                </div>
+                                <label>Senha</label>
+                                <div class="input-group input-group-lg">
+                                    <input name='senha' required  type="password" ng-model="usuario.senha" type="text" class="form-control">
+                                </div>
+                                <label>Confirmação da senha</label>
+                                <div class="input-group input-group-lg">
+                                    <input name='confirmacaoSenha' required  type="password" ng-model="usuario.confirmacaoSenha" type="text" class="form-control">
+                                </div>
+                                <label>e-mail</label>
+                                <div class="input-group input-group-lg">
+                                    <input type="email" name='email' required  ng-model="usuario.email" class="form-control"
+                                       placeholder="nome@email.com.br">
+                                </div>
+                                </div>
+                        </div>
+                        <br>
+                        <br>
+                        <section class="d-flex justify-content-center containerBotaoNovoCliente">
+                            <button type="submit" class="btn btn-primary botao">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Criar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </button>
+                            <button ng-click="cancelar()" class="btn btn-danger">Cancelar</button>
+                        </section>
+                        <br>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+    </section>
+</main>
+</body>
