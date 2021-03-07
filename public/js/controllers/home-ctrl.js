@@ -1,5 +1,6 @@
 angular.module('taskmanager')
     .controller('HomeCtrl',function($scope,$http,$window){
+        $scope.dataAtual = new Date()
         $scope.projeto = {
             tarefa: {}
         }
@@ -140,6 +141,9 @@ angular.module('taskmanager')
                 projeto.tarefas = response.data
                 projeto.tarefas.forEach(tarefa =>{
                     tarefa.concluido = retornaBooleano(tarefa.concluido)
+                    if($scope.dataAtual>tarefa.dataTermino){
+                        tarefa.atrasado = true
+                    }
                 })
             },(error)=>{
                 $scope.erro = 'Houve um erro ao buscar a lista de tarefas. ' 
@@ -168,6 +172,7 @@ angular.module('taskmanager')
             $scope.erro = ''
             $http.put('/tarefa/'+tarefa.id,tarefa)
                 .then((response)=>{
+                    console.log()
                     tarefa.versao = response.data
                     tarefa.editar = false
                 },(error)=>{
@@ -214,5 +219,9 @@ angular.module('taskmanager')
         function retornaBooleano(concluido){
             return Boolean(Number(concluido));
         }
+
+         $(function () {//ativa as dicas do formulário
+            $('[data-toggle="tooltip"]').tooltip()
+        });
 
     });

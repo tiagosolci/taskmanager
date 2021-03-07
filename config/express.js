@@ -20,6 +20,7 @@ consign({cwd:'app'})
     .include('models')
     .then('helpers/connectionFactory.js')
     .then('api')
+    .then('routes/usuario.js')
     .then('routes/login.js')
     .then('routes')
     .into(app);

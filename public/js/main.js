@@ -1,4 +1,4 @@
-angular.module('taskmanager', ['ngAnimate', 'ngRoute','ngResource','ngCookies','minhasDiretivas','meusServicos'])
+angular.module('taskmanager', ['ngAnimate', 'ngRoute','ngResource','ngCookies','minhasDiretivas','meusServicos','ui.bootstrap','ui.mask'])
     .config(function($routeProvider, $locationProvider, $httpProvider,$sceProvider){
 
         $sceProvider.enabled(false);
@@ -19,6 +19,11 @@ angular.module('taskmanager', ['ngAnimate', 'ngRoute','ngResource','ngCookies','
         $routeProvider.when('/home/', {
             templateUrl: 'partials/home.html',
             controller: 'HomeCtrl'
+        });
+
+        $routeProvider.when('/tarefa/editar/:id', {
+            templateUrl: 'partials/tarefa.html',
+            controller: 'TarefaCtrl'
         });
 
         $routeProvider.otherwise({redirectTo: '/login'});

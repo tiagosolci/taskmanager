@@ -3,8 +3,6 @@ module.exports = (app)=> {
 
     app.post('/login', api.autentica);
 
-    app.post('/usuarios/registrar/',api.criarUsuario);
-
     app.use('/*', api.verificaToken);
 
 };

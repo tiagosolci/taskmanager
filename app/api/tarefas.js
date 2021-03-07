@@ -56,15 +56,30 @@ module.exports = (app)=>{
             res.status(400).send(req.validationErrors())
         }else{
             const idTarefa = parseInt(req.params.id)
-    
+            
             const tarefa = {
                 nome:req.body.nome,
                 concluido:req.body.concluido,
                 dataAtualizacao:new Date(),
                 versao: parseInt(req.body.versao)+1
             }
+
+            if(req.body.concluido){
+                tarefa.dataConclusao = new Date()
+            }else{
+                tarefa.dataConclusao = null
+            }
+
+            if(req.body.descricao){
+                tarefa.descricao = req.body.descricao
+            }
+
+            if(req.body.dataTermino){
+                tarefa.dataTermino = new Date(req.body.dataTermino)
+            }
             TarefasDAO.atualizar(idTarefa,tarefa,(error,results)=>{
                 if(error){
+                    console.log(error)
                     res.status(400)
                     res.send(res.send(
                         JSON.stringify({
@@ -93,6 +108,23 @@ module.exports = (app)=>{
                 res.status(204)
                 res.end()
             }
+        })
+    }
+
+    api.buscarTarefaPorId = (req,res) =>{
+        const id = parseInt(req.params.id)
+        TarefasDAO.buscarTarefaPorId(id,(error,results)=>{
+            if(error){
+                res.status(400)
+                res.send(res.send(
+                    JSON.stringify({
+                        msg:'Erro ao tentar buscar a tarefa do DB.'
+                    })
+                ))
+            }else{
+                res.status(200)
+                res.json(results[0])
+            }  
         })
     }
 

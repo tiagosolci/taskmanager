@@ -6,4 +6,9 @@ module.exports = (app)=>{
         .get(api.lista)
         .put(api.atualizar)
         .delete(api.deletar)
+
+    app.route('/tarefa/editar/:id')
+        .get(api.buscarTarefaPorId)
+        .put(api.atualizar)
+
 }

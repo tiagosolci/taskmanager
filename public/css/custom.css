@@ -8,11 +8,14 @@
 .project-jumb{
     position: relative
 }
+.bg-card-projeto{
+    background-color:#82c6e7
+}
 .project-card-repeat{
     width: 366px;
     margin: 10px;
     min-height: 310px;
-    background-color: rgb(206, 216, 219);
+    background-color: #dbecf4
 }
 .atalhos-card{
     display: block;
@@ -21,3 +24,16 @@
     margin-top: 30px;
     padding-bottom: 30px;
 } 
+.icones-ocultar{
+    opacity:0;
+}
+.icones-ocultar:hover{
+    opacity:1;
+    -webkit-transition: opacity .25s ease-in-out .0s;
+    transition: opacity .25s ease-in-out .0s;
+}
+body{
+    background-image: linear-gradient(to bottom, #c7cfe0, #FFF);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
