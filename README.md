@@ -11,7 +11,7 @@ A aplicação é a solucão do autor para um desafio de criação de um gerencia
 
    * [Sobre](#sobre)
    * [Tabela de Conteudo](#tabela-de-conteudo)
-   * * [Tecnologias](#tecnologias)
+   * [Tecnologias](#tecnologias)
    * [Instalação](#instalacao)
    * [Licença](#licenca)
 
