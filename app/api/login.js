@@ -40,7 +40,6 @@ module.exports = (app) => {
     };
 
     api.verificaToken = (req, res, next) => {
-            console.log('Verificando Token....');
             jwt.verify(req.headers['x-access-token'], app.get('secret'), function (err, decoded) {
                 if (err) {
                     res.sendStatus(401);
