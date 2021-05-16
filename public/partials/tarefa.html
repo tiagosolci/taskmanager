@@ -1,61 +1,67 @@
 <task-nav></task-nav>
 
-    <painel-mensagens></painel-mensagens>
-    
-    <main class="bg-editar-tarefa">
+<painel-mensagens></painel-mensagens>
+
+<main class="bg-editar-tarefa">
+    <section class="container">
+        <section class="container d-flex justify-content-center">
+            <div>
+                <h1 class="display-6">Editar Tarefa</h1>
+            </div>
+        </section>
+
         <section class="container">
-            <section class="container d-flex justify-content-center">
-                <div>
-                    <h1 class="display-6">Editar Tarefa</h1>
+            <form name="form" ng-submit="salvar()" novalidate>
+                <div class="alert alert-primary" role="alert">
+                    Tarefa criada em {{tarefa.createdAt | date:'dd/MM/yyyy'}}
                 </div>
-            </section> 
-    
-            <section class="container">
-                <form name="form" ng-submit="salvar()" novalidate>
-                    <div class="alert alert-primary" role="alert">
-                       Tarefa criada em {{tarefa.dataCriacao | date:'dd/MM/yyyy'}}
-                      </div>
-                      <br>
-                    <p class="alert alert-success" ng-if="tarefa.dataConclusao">Tarefa concluída em {{tarefa.dataConclusao | date:'dd/MM/yyyy'}}</p>
-                    <br>
+                <br>
+                <p class="alert alert-success" ng-if="tarefa.dataConclusao">Tarefa concluída em {{tarefa.dataConclusao |
+                    date:'dd/MM/yyyy'}}</p>
+                <br>
                 </div>
-                    <div class="row">
-                        <div class="col md-12">
-                            <div>
-                                <label>Nome</label>
-                                <div class="input-group input-group-lg">
-                                    <input name='nome' required ng-model="tarefa.nome" class="form-control">
-                                </div>
-                                <br>
-                                <label>Descrição</label>
-                                <div class="input-group input-group-lg">
-                                    <textarea name='descricao'  type="text" ng-model="tarefa.descricao" type="text" class="form-control"></textarea>
-                                </div>
-                                <br>
-                                <label>Data prevista para conclusão:</label>
-                                    <div ng-controller="DatepickerCtrl"  class="col-md-3">
-                                        <p class="input-group input-group-lg">
-                                            <input type="text" class="form-control" name="vencimento" id="vencimento" uib-datepicker-popup="{{format}}" ng-model="tarefa.dataTermino" is-open="popup1.opened" datepicker-options="dateOptions"
-                                            model-view-value="true" ui-mask="99/99/9999"
-                                            ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
-                                            <span class="input-group-btn">
-                                          <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-                                        </span>
-                                        </p>
-                                    </div>
-                                <br>
+                <div class="row">
+                    <div class="col md-12">
+                        <div>
+                            <label>Nome</label>
+                            <div class="input-group input-group-lg">
+                                <input name='nome' required ng-model="tarefa.nome" class="form-control">
+                            </div>
+                            <br>
+                            <label>Descrição</label>
+                            <div class="input-group input-group-lg">
+                                <textarea name='descricao' type="text" ng-model="tarefa.descricao" type="text"
+                                    class="form-control"></textarea>
+                            </div>
+                            <br>
+                            <label>Data prevista para conclusão:</label>
+                            <div ng-controller="DatepickerCtrl" class="col-md-3">
+                                <p class="input-group input-group-lg">
+                                    <input type="text" class="form-control" name="vencimento" id="vencimento"
+                                        uib-datepicker-popup="{{format}}" ng-model="tarefa.dataTermino"
+                                        is-open="popup1.opened" datepicker-options="dateOptions" model-view-value="true"
+                                        ui-mask="99/99/9999" ng-required="true" close-text="Close"
+                                        alt-input-formats="altInputFormats" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="open1()"><i
+                                                class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </p>
+                            </div>
+                            <br>
                             <br>
                             <section class="form-group row d-flex justify-content-center">
                                 <div class="col-md-5 row ">
-                                <label class="form-check-label col-md-6">Marcar como concluída?</label>
-                                <label class="form-check-label">
-                                <input ng-model="tarefa.concluido" ng-click="concluido()" class="form-check-input" type="checkbox">
-                                </label>
+                                    <label class="form-check-label col-md-6">Marcar como concluída?</label>
+                                    <label class="form-check-label">
+                                        <input ng-model="tarefa.concluido" ng-click="concluido()"
+                                            class="form-check-input" type="checkbox">
+                                    </label>
                                 </div>
-                    
+
                             </section>
                             <br>
-                            <section >
+                            <section>
                                 <div class="d-flex justify-content-center form-group">
                                     <button type="submit" class="col-md-4 btn btn-primary">Salvar</button>
                                 </div>
@@ -66,9 +72,8 @@
                             <br>
                         </div>
                     </div>
-                </form>
-            </section>
-    
+            </form>
         </section>
-    </main>
 
+    </section>
+</main>

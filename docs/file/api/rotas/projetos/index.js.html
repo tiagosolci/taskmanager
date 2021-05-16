@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">api/rotas/projetos/index.js | task-manager</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#erros">erros</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/erros/CampoDuplicado.js~CampoDuplicado.html">CampoDuplicado</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/erros/CampoInvalido.js~CampoInvalido.html">CampoInvalido</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/erros/FalhaAutenticacao.js~FalhaAutenticacao.html">FalhaAutenticacao</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/erros/ProjetoNaoEncontrado.js~ProjetoNaoEncontrado.html">ProjetoNaoEncontrado</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/erros/TarefaNaoEncontrada.js~TarefaNaoEncontrada.html">TarefaNaoEncontrada</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/erros/TokenInvalido.js~TokenInvalido.html">TokenInvalido</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/erros/TokenInvalidoPorLogout.js~TokenInvalidoPorLogout.html">TokenInvalidoPorLogout</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/erros/TokenNaoEnviado.js~TokenNaoEnviado.html">TokenNaoEnviado</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/erros/UsuarioNaoEncontrado.js~UsuarioNaoEncontrado.html">UsuarioNaoEncontrado</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#middlewares">middlewares</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-criarConfiguracaoEmail">criarConfiguracaoEmail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verificaSenha">verificaSenha</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verificaUsuario">verificaUsuario</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-gerarTokenJWT">gerarTokenJWT</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-gerarTokenOpaco">gerarTokenOpaco</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-invalidaTokenJWT">invalidaTokenJWT</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-invalidaTokenOpaco">invalidaTokenOpaco</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verificaTokenJWT">verificaTokenJWT</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verificaTokenNaBlockList">verificaTokenNaBlockList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verificaTokenOpaco">verificaTokenOpaco</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-configuracaoEmailProducao">configuracaoEmailProducao</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-nodemailer">nodemailer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Email">Email</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-BearerStrategy">BearerStrategy</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-FalhaAutenticacao">FalhaAutenticacao</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LocalStrategy">LocalStrategy</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Usuario">Usuario</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-bcrypt">bcrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-passport">passport</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-tokens">tokens</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-passport">passport</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-jwt">jwt</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#models">models</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fs">fs</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Model">Model</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Model">Model</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Model">Model</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#rotas-projetos">rotas/projetos</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/rotas/projetos/Projeto.js~Projeto.html">Projeto</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verificarProjeto">verificarProjeto</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-roteadorTarefas">roteadorTarefas</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#rotas-projetos-tarefas">rotas/projetos/tarefas</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/rotas/projetos/tarefas/Tarefa.js~Tarefa.html">Tarefa</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#rotas-usuarios">rotas/usuarios</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/rotas/usuarios/Usuario.js~Usuario.html">Usuario</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#services">services</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/services/ProjetosService.js~ProjetosService.html">ProjetosService</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/services/TarefasService.js~TarefasService.html">TarefasService</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/services/UsuariosService.js~UsuariosService.html">UsuariosService</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">api/rotas/projetos/index.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const Projeto = require(&apos;./Projeto&apos;)
+const router = require(&apos;express&apos;).Router()
+const { middlewaresAutenticacao } = require(&apos;../../middlewares&apos;)
+
+router.get(&apos;/&apos;, middlewaresAutenticacao.bearer, async (req, res, next) =&gt; {
+    try {
+        const usuario_id = req.user.id
+        const projeto = new Projeto({ usuario_id })
+        const projetos = await projeto.buscaProjetosPorUsuarioId()
+        res.status(200).json(projetos)
+    } catch (error) {
+        next(error)
+    }
+})
+
+router.post(&apos;/&apos;, middlewaresAutenticacao.bearer, async (req, res, next) =&gt; {
+    try {
+        const usuario_id = req.user.id
+        const { nome } = req.body
+        const projeto = new Projeto({ usuario_id, nome })
+        await projeto.criar()
+        res.status(201).json(projeto)
+    } catch (error) {
+        next(error)
+    }
+})
+
+router.put(&apos;/&apos;, middlewaresAutenticacao.bearer, async (req, res, next) =&gt; {
+    try {
+        const usuario_id = req.user.id
+        const { id, nome } = req.body
+        const projeto = new Projeto({ id, usuario_id, nome })
+        await projeto.atualizar()
+        res.status(200).json(projeto)
+    } catch (error) {
+        next(error)
+    }
+})
+
+router.delete(&apos;/&apos;, middlewaresAutenticacao.bearer, async (req, res, next) =&gt; {
+    try {
+        const usuario_id = req.user.id
+        const { id } = req.body
+        const projeto = new Projeto({ id, usuario_id })
+        await projeto.buscarProjeto()
+        await projeto.deletar()
+        res.status(200).json({ mensagem: `Projeto ${ projeto.nome } deletado` })
+    } catch (error) {
+        next(error)
+    }
+})
+/**
+ * M&#xE9;todo para validar se o projeto informado na rota de tarefas &#xE9; v&#xE1;lido e pertence ao usu&#xE1;rio logado fazendo a requisi&#xE7;&#xE3;o.
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
+const verificarProjeto = async (req, res, next) =&gt; {
+    try {
+        const usuario_id = req.user.id
+        const id = Number(req.params.idProjeto)
+        const projeto = new Projeto({ id, usuario_id })
+        await projeto.buscarProjeto()
+        req.projeto = projeto
+        next()
+    } catch (error) {
+        /**
+         * chama o pr&#xF3;ximo middleware caso retorne erro
+         */
+        next(error)
+    }
+}
+
+/**
+ * Importa as rotas de tarefas, dessa forma elas ficam sobre projetos em depend&#xEA;ncia desse. Ganha-se al&#xE9;m da valida&#xE7;&#xE3;o do access token a valida&#xE7;&#xE3;o do projeto.
+ * @type 
+ */
+const roteadorTarefas = require(&apos;./tarefas&apos;)
+router.use(&apos;/:idProjeto/tarefas&apos;, middlewaresAutenticacao.bearer, verificarProjeto, roteadorTarefas)
+
+
+
+module.exports = router</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

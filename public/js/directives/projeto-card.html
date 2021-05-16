@@ -6,41 +6,45 @@
 
             <div ng-if="projeto.editar" class="input-group input-group-lg">
                 <input type="text" class="form-control" placeholder="Nome do Projeto" ng-model="projeto.nome" autofocus>
-                <a ng-click="atualizarProjeto(projeto)"  title="Salvar Tarefa">
-                    <img height="30" src="/images/save.svg">  
+                <a ng-click="atualizarProjeto(projeto)" title="Salvar Tarefa">
+                    <img height="30" src="/images/save.svg">
                 </a>
-            </div>
-           
-              <div class="atalhos-card">
-                <a class="icones-ocultar" ng-if="!projeto.editar" ng-click="editarProjeto(projeto)" title="Editar Projeto">
-                    <img  height="30" src="/images/pencil.svg">
-                  </a>
-                  <a class="icones-ocultar" ng-if="!projeto.editar" ng-click="deletarProjeto(projeto)" title="Deletar Projeto">
-                    <img  height="30" src="/images/delete.svg">
-                </a>
-              </div>
-            
-          </nav>
-          <section class="container">
-            <h2 ng-if="projeto.tarefas.length>0" class="badge badge-pill badge-warning">Pendente</h2>        
-            <div ng-repeat="tarefa in projeto.tarefas">
-                <tarefas-pendentes-card dados = "tarefa"></tarefas-card>
-            </div>
-            <h2 ng-if="projeto.tarefas.length>0" class="badge badge-pill badge-success">Concluído</h2>        
-            <div ng-repeat="tarefa in projeto.tarefas">
-                <tarefas-concluidas-card dados = "tarefa"></tarefas-concluidas-card>
             </div>
 
-          </section>
-        
+            <div class="atalhos-card">
+                <a class="icones-ocultar" ng-if="!projeto.editar" ng-click="editarProjeto(projeto)"
+                    title="Editar Projeto">
+                    <img height="30" src="/images/pencil.svg">
+                </a>
+                <a class="icones-ocultar" ng-if="!projeto.editar" ng-click="deletarProjeto(projeto)"
+                    title="Deletar Projeto">
+                    <img height="30" src="/images/delete.svg">
+                </a>
+            </div>
+
+        </nav>
+        <section class="container">
+            <h2 ng-if="projeto.Tarefas.length>0" class="badge badge-pill badge-warning">Pendente</h2>
+            <div ng-repeat="tarefa in projeto.Tarefas">
+                <tarefas-pendentes-card dados="tarefa">
+                    </tarefas-card>
+            </div>
+            <h2 ng-if="projeto.Tarefas.length>0" class="badge badge-pill badge-success">Concluído</h2>
+            <div ng-repeat="tarefa in projeto.Tarefas">
+                <tarefas-concluidas-card dados="tarefa"></tarefas-concluidas-card>
+            </div>
+
+        </section>
+
     </div>
     <br>
-    <div class="container adicionar-tarefa"> 
-            <p class="form-inline">
-                <input class="form-control mr-sm-2" ng-model="projeto.tarefa.nome" placeholder="Tarefa" aria-label="Adicionar Tarefa">
-                <button class="btn btn-outline-success my-2 my-sm-0" ng-click="criarTarefa(projeto)">Adicionar </button>
-            </p>
-        </div>
-    
-  </div>
+    <div class="container adicionar-tarefa">
+        <p class="form-inline">
+            <input class="form-control mr-sm-2" ng-model="projeto.tarefa.nome" placeholder="Tarefa"
+                aria-label="Adicionar Tarefa">
+            <button class="btn btn-outline-success my-2 my-sm-0" ng-click="criarTarefa(projeto)">Adicionar </button>
+        </p>
+    </div>
+
+</div>
 </div>

@@ -1,232 +1,186 @@
 angular.module('taskmanager')
-    .controller('HomeCtrl',function($scope,$http,$window){
+    .controller('HomeCtrl', function ($scope, $http, $window) {
         $scope.dataAtual = new Date()
         $scope.projeto = {
             tarefa: {}
         }
         $scope.projetos = []
 
-        $scope.criarProjeto = ()=>{
+        $scope.criarProjeto = () => {
             $scope.erro = ''
             let novoProjeto = $scope.projeto
             novoProjeto.idUsuario = JSON.parse($window.sessionStorage.user).id
-            $http.post('/projeto/',novoProjeto)
-            .then((response)=>{
-                $scope.projetos.push(response.data)
-                $scope.projeto = {}
-            },(error)=>{
-                $scope.erro = 'Houve um erro ao criar o projeto. ' 
-                let erros = error.data
-                if(Array.isArray(erros)){
-                    erros.forEach(erro => {
-                        $scope.erro += erro.msg     
-                })  
-                }else{
-                    if(error.data.msg){
-                        $scope.erro += error.data.msg     
-                    }else{
-                        $scope.erro += error.data    
+            $http.post('/api/projetos/', novoProjeto)
+                .then((response) => {
+                    $scope.projetos.push(response.data)
+                    $scope.projeto = {}
+                }, (error) => {
+                    $scope.erro = 'Houve um erro ao criar o projeto. '
+                    let erros = error.data
+                    if (Array.isArray(erros)) {
+                        erros.forEach(erro => {
+                            $scope.erro += erro.msg
+                        })
+                    } else {
+                        if (error.data.msg) {
+                            $scope.erro += error.data.msg
+                        } else {
+                            $scope.erro += error.data
+                        }
                     }
-                }
-            })
+                })
         }
 
-        $scope.listarProjetos = ()=>{
+        $scope.listarProjetos = () => {
             $scope.erro = ''
-            let idUsuario = JSON.parse($window.sessionStorage.user).id
-            $http.get('/projeto/'+idUsuario)
-            .then((response)=>{
-                $scope.projetos = response.data
-                buscarTarefas()
-            },(error)=>{
-                $scope.erro = 'Houve um erro ao buscar a lista de projetos. ' 
-                let erros = error.data
-                if(Array.isArray(erros)){
-                    erros.forEach(erro => {
-                        $scope.erro += erro.msg     
-                })  
-                }else{
-                    if(error.data.msg){
-                        $scope.erro += error.data.msg     
-                    }else{
-                        $scope.erro += error.data    
+            $http.get('/api/projetos/')
+                .then((response) => {
+                    $scope.projetos = response.data
+                }, (error) => {
+                    $scope.erro = 'Houve um erro ao buscar a lista de projetos. '
+                    let erros = error.data
+                    if (Array.isArray(erros)) {
+                        erros.forEach(erro => {
+                            $scope.erro += erro.msg
+                        })
+                    } else {
+                        if (error.data.msg) {
+                            $scope.erro += error.data.msg
+                        } else {
+                            $scope.erro += error.data
+                        }
                     }
-                }   
-            })
+                })
         }
 
         $scope.listarProjetos()
 
-        $scope.editarProjeto = (projeto)=>{
+        $scope.editarProjeto = (projeto) => {
             projeto.editar = true
         }
 
-        $scope.atualizarProjeto = (projeto)=> {
+        $scope.atualizarProjeto = (projeto) => {
             $scope.erro = ''
-            $http.put('/projeto/'+projeto.id,projeto)
-                .then((response)=>{
+            $http.put('/api/projetos/', projeto)
+                .then((response) => {
                     projeto.versao = response.data
                     projeto.editar = false
-                },(error)=>{
-                    $scope.erro = 'Houve um erro ao tentar atualizar o projeto. ' 
-                let erros = error.data
-                if(Array.isArray(erros)){
-                    erros.forEach(erro => {
-                        $scope.erro += erro.msg     
-                })  
-                }else{
-                    if(error.data.msg){
-                        $scope.erro += error.data.msg     
-                    }else{
-                        $scope.erro += error.data    
+                }, (error) => {
+                    $scope.erro = 'Houve um erro ao tentar atualizar o projeto. '
+                    let erros = error.data
+                    if (Array.isArray(erros)) {
+                        erros.forEach(erro => {
+                            $scope.erro += erro.msg
+                        })
+                    } else {
+                        if (error.data.msg) {
+                            $scope.erro += error.data.msg
+                        } else {
+                            $scope.erro += error.data
+                        }
                     }
-                }
                 })
         }
 
-        $scope.deletarProjeto = (projeto) =>{
+        $scope.deletarProjeto = (projeto) => {
             $scope.erro = ''
-         $http.delete('/projeto/'+projeto.id)
-            .then(response =>{
-                var index = $scope.projetos.indexOf(projeto);
-                $scope.projetos.splice(index,1);
-            },error =>{
-                $scope.erro = 'Houve um erro ao tentar deletar o projeto. ' 
-                let erros = error.data
-                if(Array.isArray(erros)){
-                    erros.forEach(erro => {
-                        $scope.erro += erro.msg     
-                })  
-                }else{
-                    if(error.data.msg){
-                        $scope.erro += error.data.msg     
-                    }else{
-                        $scope.erro += error.data    
+            $http.delete('/api/projetos/', projeto.id)
+                .then(response => {
+                    var index = $scope.projetos.indexOf(projeto);
+                    $scope.projetos.splice(index, 1);
+                }, error => {
+                    $scope.erro = 'Houve um erro ao tentar deletar o projeto. '
+                    let erros = error.data
+                    if (Array.isArray(erros)) {
+                        erros.forEach(erro => {
+                            $scope.erro += erro.msg
+                        })
+                    } else {
+                        if (error.data.msg) {
+                            $scope.erro += error.data.msg
+                        } else {
+                            $scope.erro += error.data
+                        }
                     }
-                }
-            })
+                })
         }
 
-        $scope.criarTarefa = (projeto)=>{
+        $scope.criarTarefa = (projeto) => {
             $scope.erro = ''
             let tarefa = projeto.tarefa
             tarefa.idProjeto = projeto.id
-            $http.post('/tarefa/',tarefa)
-            .then(response=>{
-                projeto.tarefa = {}
-                buscarTarefas()
-            },error=>{
-                $scope.erro = 'Houve um erro ao tentar criar a tarefa. ' 
-                let erros = error.data
-                if(Array.isArray(erros)){
-                    erros.forEach(erro => {
-                        $scope.erro += erro.msg     
-                })  
-                }else{
-                    if(error.data.msg){
-                        $scope.erro += error.data.msg     
-                    }else{
-                        $scope.erro += error.data    
+            $http.post(`/api/projetos/${ projeto.id }/tarefas/`, tarefa)
+                .then(response => {
+                    projeto.tarefas.push(reponse.data)
+                }, error => {
+                    $scope.erro = 'Houve um erro ao tentar criar a tarefa. '
+                    let erros = error.data
+                    if (Array.isArray(erros)) {
+                        erros.forEach(erro => {
+                            $scope.erro += erro.msg
+                        })
+                    } else {
+                        if (error.data.msg) {
+                            $scope.erro += error.data.msg
+                        } else {
+                            $scope.erro += error.data
+                        }
                     }
-                }
-            })
-        }
-
-        function buscarTarefas(){
-            $scope.erro = ''
-            $scope.projetos.forEach(projeto => {
-                const idProjeto = projeto.id
-                $http.get('/tarefa/'+idProjeto)
-            .then((response)=>{
-                projeto.tarefas = response.data
-                projeto.tarefas = processarTarefas(projeto.tarefas)
-            },(error)=>{
-                $scope.erro = 'Houve um erro ao buscar a lista de tarefas. ' 
-                let erros = error.data
-                if(Array.isArray(erros)){
-                    erros.forEach(erro => {
-                        $scope.erro += erro.msg     
-                })  
-                }else{
-                    if(error.data.msg){
-                        $scope.erro += error.data.msg     
-                    }else{
-                        $scope.erro += error.data    
-                    }
-                }   
-            })
-
-            })
-        }
-
-        $scope.editarTarefa = (tarefa)=>{
-            tarefa.editar = true
-        }
-
-        $scope.atualizarTarefa = (tarefa)=> {
-            $scope.erro = ''
-            $http.put('/tarefa/'+tarefa.id,tarefa)
-                .then((response)=>{
-                    console.log()
-                    tarefa.versao = response.data
-                    tarefa.editar = false
-                },(error)=>{
-                    $scope.erro = 'Houve um erro ao tentar atualizar a tarefa. ' 
-                let erros = error.data
-                if(Array.isArray(erros)){
-                    erros.forEach(erro => {
-                        $scope.erro += erro.msg     
-                })  
-                }else{
-                    if(error.data.msg){
-                        $scope.erro += error.data.msg     
-                    }else{
-                        $scope.erro += error.data    
-                    }
-                }
                 })
         }
 
-        $scope.deletarTarefa = (projeto,tarefa) =>{
+        $scope.editarTarefa = (tarefa) => {
+            tarefa.editar = true
+        }
+
+        $scope.atualizarTarefa = (tarefa) => {
             $scope.erro = ''
-         $http.delete('/tarefa/'+tarefa.id)
-            .then(response =>{
-                var index = projeto.tarefas.indexOf(tarefa);
-                projeto.tarefas.splice(index,1);
-            },error =>{
-                $scope.erro = 'Houve um erro ao tentar deletar a tarefa. ' 
-                let erros = error.data
-                if(Array.isArray(erros)){
-                    erros.forEach(erro => {
-                        $scope.erro += erro.msg     
-                })  
-                }else{
-                    if(error.data.msg){
-                        $scope.erro += error.data.msg     
-                    }else{
-                        $scope.erro += error.data    
+            $http.put(`/api/projetos/${ tarefa.projeto_id }/tarefas/${ tarefa.id }`, tarefa)
+                .then((response) => {
+                    tarefa.versao = response.data
+                    tarefa.editar = false
+                }, (error) => {
+                    $scope.erro = 'Houve um erro ao tentar atualizar a tarefa. '
+                    let erros = error.data
+                    if (Array.isArray(erros)) {
+                        erros.forEach(erro => {
+                            $scope.erro += erro.msg
+                        })
+                    } else {
+                        if (error.data.msg) {
+                            $scope.erro += error.data.msg
+                        } else {
+                            $scope.erro += error.data
+                        }
                     }
-                }
-            })
+                })
         }
 
-        function retornaBooleano(concluido){
-            return Boolean(Number(concluido));
-        }
-
-        function processarTarefas(tarefas){
-            tarefas.forEach(tarefa =>{
-                tarefa.concluido = retornaBooleano(tarefa.concluido)
-                if(tarefa.dataTermino){
-                    if($scope.dataAtual>new Date(tarefa.dataTermino)){
-                        tarefa.atrasado = true
+        $scope.deletarTarefa = (projeto, tarefa) => {
+            $scope.erro = ''
+            $http.delete(`/api/projetos/${ projeto.id }/tarefas/${ tarefa.id }`)
+                .then(response => {
+                    console.log(projeto)
+                    var index = projeto.Tarefas.indexOf(tarefa);
+                    projeto.Tarefas.splice(index, 1);
+                }, error => {
+                    $scope.erro = 'Houve um erro ao tentar deletar a tarefa. '
+                    let erros = error.data
+                    if (Array.isArray(erros)) {
+                        erros.forEach(erro => {
+                            $scope.erro += erro.msg
+                        })
+                    } else {
+                        if (error.data.msg) {
+                            $scope.erro += error.data.msg
+                        } else {
+                            $scope.erro += error.data
+                        }
                     }
-                }
-            })
-            return tarefas
+                })
         }
 
-         $(function () {
+        $(function () {
             $('[data-toggle="tooltip"]').tooltip()
         });
 

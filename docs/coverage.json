@@ -1,0 +1,270 @@
+{
+  "coverage": "53.8%",
+  "expectCount": 197,
+  "actualCount": 106,
+  "files": {
+    "api/erros/CampoDuplicado.js": {
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
+    },
+    "api/erros/CampoInvalido.js": {
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
+    },
+    "api/erros/FalhaAutenticacao.js": {
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
+    },
+    "api/erros/ProjetoNaoEncontrado.js": {
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
+    },
+    "api/erros/TarefaNaoEncontrada.js": {
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
+    },
+    "api/erros/TokenInvalido.js": {
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
+    },
+    "api/erros/TokenInvalidoPorLogout.js": {
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
+    },
+    "api/erros/TokenNaoEnviado.js": {
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
+    },
+    "api/erros/UsuarioNaoEncontrado.js": {
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
+    },
+    "api/erros/index.js": {
+      "expectCount": 9,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "api/index.js": {
+      "expectCount": 10,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        68
+      ]
+    },
+    "api/middlewares/Email.js": {
+      "expectCount": 6,
+      "actualCount": 4,
+      "undocumentLines": [
+        5,
+        40
+      ]
+    },
+    "api/middlewares/EmailVerificacao.js": {
+      "expectCount": 9,
+      "actualCount": 8,
+      "undocumentLines": [
+        6
+      ]
+    },
+    "api/middlewares/estrategiaAutenticacao.js": {
+      "expectCount": 9,
+      "actualCount": 9,
+      "undocumentLines": []
+    },
+    "api/middlewares/index.js": {
+      "expectCount": 4,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "api/middlewares/middlewaresAutenticacao.js": {
+      "expectCount": 4,
+      "actualCount": 1,
+      "undocumentLines": [
+        7,
+        8,
+        9
+      ]
+    },
+    "api/middlewares/tokens.js": {
+      "expectCount": 13,
+      "actualCount": 8,
+      "undocumentLines": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "api/models/index.js": {
+      "expectCount": 7,
+      "actualCount": 7,
+      "undocumentLines": []
+    },
+    "api/models/projetos.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "api/models/tarefas.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "api/models/usuarios.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "api/rotas/projetos/Projeto.js": {
+      "expectCount": 18,
+      "actualCount": 7,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "api/rotas/projetos/index.js": {
+      "expectCount": 5,
+      "actualCount": 2,
+      "undocumentLines": [
+        1,
+        2,
+        3
+      ]
+    },
+    "api/rotas/projetos/tarefas/Tarefa.js": {
+      "expectCount": 21,
+      "actualCount": 6,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        76
+      ]
+    },
+    "api/rotas/projetos/tarefas/index.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2
+      ]
+    },
+    "api/rotas/usuarios/Usuario.js": {
+      "expectCount": 21,
+      "actualCount": 9,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ]
+    },
+    "api/rotas/usuarios/index.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3
+      ]
+    },
+    "api/services/ProjetosService.js": {
+      "expectCount": 6,
+      "actualCount": 3,
+      "undocumentLines": [
+        1,
+        2,
+        8
+      ]
+    },
+    "api/services/TarefasService.js": {
+      "expectCount": 5,
+      "actualCount": 2,
+      "undocumentLines": [
+        1,
+        2,
+        8
+      ]
+    },
+    "api/services/UsuariosService.js": {
+      "expectCount": 3,
+      "actualCount": 1,
+      "undocumentLines": [
+        1,
+        7
+      ]
+    },
+    "api/services/index.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3
+      ]
+    }
+  }
+}

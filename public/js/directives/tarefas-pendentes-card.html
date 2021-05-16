@@ -1,29 +1,30 @@
 <ul class="list-group">
-    <li class="list-group" >   
+    <li class="list-group">
 
         <div ng-if="!tarefa.concluido && tarefa.editar" class="input-group input-group-lg">
-            <input type="text" class="form-control" placeholder="Nome da Tarefa" ng-model="tarefa.nome" name="user" id="user" autofocus>
-            <a ng-click="atualizarTarefa(tarefa)"  title="Salvar Tarefa">
-                <img height="30" src="/images/save.svg">  
+            <input type="text" class="form-control" placeholder="Nome da Tarefa" ng-model="tarefa.nome" name="user"
+                id="user" autofocus>
+            <a ng-click="atualizarTarefa(tarefa)" title="Salvar Tarefa">
+                <img height="30" src="/images/save.svg">
             </a>
         </div>
-        
-        <label data-toggle="tooltip" data-placement="top" title="{{tarefa.dataTermino | date:'dd/MM/yyyy'}}" ng-if="!tarefa.concluido && !tarefa.editar" ng-class="{'list-group-item list-group-item-danger' : tarefa.atrasado,
+
+        <label data-toggle="tooltip" data-placement="top" title="{{tarefa.dataTermino | date:'dd/MM/yyyy'}}"
+            ng-if="!tarefa.concluido && !tarefa.editar" ng-class="{'list-group-item list-group-item-danger' : tarefa.atrasado,
         'list-group-item list-group-item-warning' :!tarefa.atrasado}">
-            
-            <input ng-model='tarefa.concluido'  ng-change="atualizarTarefa(tarefa)" type="checkbox"> 
-            <a href="#/tarefa/editar/{{tarefa.id}}">{{tarefa.nome}}</a>
+
+            <input ng-model='tarefa.concluido' ng-change="atualizarTarefa(tarefa)" type="checkbox">
+            <a href="#/tarefa/editar/{{tarefa.id}}/{{tarefa.projeto_id}}">{{tarefa.nome}}</a>
 
             <span class="float-right">
-                <a ng-if="!tarefa.editar"  class="icones-ocultar"
-                ng-click="editarTarefa(tarefa)" title="Editar Tarefa">
-                    <img  height="30" src="/images/pencil.svg">
-                  </a>
-                  <a ng-if="!tarefa.editar"  class="icones-ocultar"
-                  ng-click="deletarTarefa(projeto,tarefa)" title="Deletar Tarefa">
-                    <img  height="30" src="/images/delete.svg">
+                <a ng-if="!tarefa.editar" class="icones-ocultar" ng-click="editarTarefa(tarefa)" title="Editar Tarefa">
+                    <img height="30" src="/images/pencil.svg">
                 </a>
-              </span>
+                <a ng-if="!tarefa.editar" class="icones-ocultar" ng-click="deletarTarefa(projeto,tarefa)"
+                    title="Deletar Tarefa">
+                    <img height="30" src="/images/delete.svg">
+                </a>
+            </span>
         </label>
     </li>
-  </ul>
+</ul>

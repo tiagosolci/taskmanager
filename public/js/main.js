@@ -1,5 +1,5 @@
-angular.module('taskmanager', ['ngAnimate', 'ngRoute','ngResource','ngCookies','minhasDiretivas','meusServicos','ui.bootstrap','ui.mask'])
-    .config(function($routeProvider, $locationProvider, $httpProvider,$sceProvider){
+angular.module('taskmanager', ['ngAnimate', 'ngRoute', 'ngResource', 'ngCookies', 'minhasDiretivas', 'meusServicos', 'ui.bootstrap', 'ui.mask'])
+    .config(function ($routeProvider, $locationProvider, $httpProvider, $sceProvider) {
 
         $sceProvider.enabled(false);
         $httpProvider.interceptors.push('tokenInterceptor');
@@ -21,11 +21,11 @@ angular.module('taskmanager', ['ngAnimate', 'ngRoute','ngResource','ngCookies','
             controller: 'HomeCtrl'
         });
 
-        $routeProvider.when('/tarefa/editar/:id', {
+        $routeProvider.when('/tarefa/editar/:id/:projeto_id', {
             templateUrl: 'partials/tarefa.html',
             controller: 'TarefaCtrl'
         });
 
-        $routeProvider.otherwise({redirectTo: '/login'});
+        $routeProvider.otherwise({ redirectTo: '/login' });
 
     })

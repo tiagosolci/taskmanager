@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">api/middlewares/estrategiaAutenticacao.js | task-manager</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#erros">erros</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/erros/CampoDuplicado.js~CampoDuplicado.html">CampoDuplicado</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/erros/CampoInvalido.js~CampoInvalido.html">CampoInvalido</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/erros/FalhaAutenticacao.js~FalhaAutenticacao.html">FalhaAutenticacao</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/erros/ProjetoNaoEncontrado.js~ProjetoNaoEncontrado.html">ProjetoNaoEncontrado</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/erros/TarefaNaoEncontrada.js~TarefaNaoEncontrada.html">TarefaNaoEncontrada</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/erros/TokenInvalido.js~TokenInvalido.html">TokenInvalido</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/erros/TokenInvalidoPorLogout.js~TokenInvalidoPorLogout.html">TokenInvalidoPorLogout</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/erros/TokenNaoEnviado.js~TokenNaoEnviado.html">TokenNaoEnviado</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/erros/UsuarioNaoEncontrado.js~UsuarioNaoEncontrado.html">UsuarioNaoEncontrado</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#middlewares">middlewares</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-criarConfiguracaoEmail">criarConfiguracaoEmail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verificaSenha">verificaSenha</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verificaUsuario">verificaUsuario</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-gerarTokenJWT">gerarTokenJWT</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-gerarTokenOpaco">gerarTokenOpaco</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-invalidaTokenJWT">invalidaTokenJWT</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-invalidaTokenOpaco">invalidaTokenOpaco</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verificaTokenJWT">verificaTokenJWT</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verificaTokenNaBlockList">verificaTokenNaBlockList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verificaTokenOpaco">verificaTokenOpaco</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-configuracaoEmailProducao">configuracaoEmailProducao</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-nodemailer">nodemailer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Email">Email</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-BearerStrategy">BearerStrategy</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-FalhaAutenticacao">FalhaAutenticacao</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-LocalStrategy">LocalStrategy</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Usuario">Usuario</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-bcrypt">bcrypt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-passport">passport</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-tokens">tokens</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-passport">passport</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-jwt">jwt</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#models">models</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fs">fs</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Model">Model</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Model">Model</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Model">Model</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#rotas-projetos">rotas/projetos</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/rotas/projetos/Projeto.js~Projeto.html">Projeto</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-verificarProjeto">verificarProjeto</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-roteadorTarefas">roteadorTarefas</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#rotas-projetos-tarefas">rotas/projetos/tarefas</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/rotas/projetos/tarefas/Tarefa.js~Tarefa.html">Tarefa</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#rotas-usuarios">rotas/usuarios</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/rotas/usuarios/Usuario.js~Usuario.html">Usuario</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#services">services</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/services/ProjetosService.js~ProjetosService.html">ProjetosService</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/services/TarefasService.js~TarefasService.html">TarefasService</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/api/services/UsuariosService.js~UsuariosService.html">UsuariosService</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">api/middlewares/estrategiaAutenticacao.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * middleware que implementa as estrat&#xE9;gias de autentica&#xE7;&#xE3;o da aplica&#xE7;&#xE3;o
+ * @interface 
+ */
+const passport = require(&apos;passport&apos;)
+/**
+ * @module {passport}
+ */
+const bcrypt = require(&apos;bcrypt&apos;)
+/**
+ * @module {bcript}
+ */
+
+/**
+ * Para configura&#xE7;&#xE3;o da estrat&#xE9;gia local de autentica&#xE7;&#xE3;o do usu&#xE1;rio foi usado o m&#xF3;dulo node passport e passport-local
+ */
+const LocalStrategy = require(&apos;passport-local&apos;).Strategy
+/**
+ * constante que cont&#xE9;m a estrat&#xE9;gia local do passport
+ * @type {class} LocalStrategy
+ */
+const BearerStrategy = require(&apos;passport-http-bearer&apos;).Strategy
+/**
+ * * constante que cont&#xE9;m a estrat&#xE9;gia bearer do passport
+ * @type {class} BearerStrategy
+ */
+
+const Usuario = require(&apos;../rotas/usuarios/Usuario&apos;)
+/**
+ * * constante da Classe Usu&#xE1;rio
+ * @type {class} Usuario
+ */
+const { FalhaAutenticacao, UsuarioNaoEncontrado } = require(&apos;../erros&apos;)
+/**
+ * * constante das classes de tratamento de erro da interface
+ * @type {class} FalhaAutenticacao
+ * @type {class} UsuarioNaoEncontrado
+ */
+
+const tokens = require(&apos;./tokens&apos;)
+/**
+ * constante com a interface que concentra manipula&#xE7;&#xE3;o dos tokens do sistema.
+ * @type {interface}
+ */
+
+/**
+ * O m&#xE9;todo verifica se um usu&#xE1;rio foi encontrado com o e-mail informado
+ * @param {object} usuario 
+ * Esse erro ocorre quando um usu&#xE1;rio n&#xE3;o &#xE9; encontrado.
+ * @throws {UsuarioNaoEncontrado}
+ */
+function verificaUsuario(usuario) {
+    if (!usuario) throw new UsuarioNaoEncontrado()
+}
+
+/**
+ * O m&#xE9;tdo verifica atr&#xE1;ves do m&#xF3;dulo bcrypt se a senha informada pelo cliente &#xE9; compat&#xED;vel com o hash da senha guardado no DB
+ * @param {string} senha 
+ * @param {string} senhaHash 
+ * Esse erro ocorre quando a compara&#xE7;&#xE3;o da senha com o hash da senha falha.
+ * @throws {FalhaAutenticacao}
+ */
+async function verificaSenha(senha, senhaHash) {
+    const senhaValida = await bcrypt.compare(senha, senhaHash)
+    if (!senhaValida) throw new FalhaAutenticacao()
+}
+
+/**
+ * A classe Usu&#xE1;rio &#xE9; instanciada e &#xE9; feito a busca do registro do usu&#xE1;rio pelo e-mail informado no login, caso retorno nulo a estrat&#xE9;gia devolve o erro de que o usu&#xE1;rio n&#xE3;o foi localizado.
+ * 
+ * Encontrado o usu&#xE1;rio a senha informada &#xE9; validada com hash da senha salvo no DB atrav&#xE9;s do m&#xE9;todo compare do bcrypt.
+ * Confirmado que a senha &#xE9; a correta o middleware passa o usu&#xE1;rio localizado para o pr&#xF3;ximo middleware.
+ */
+passport.use(
+    new LocalStrategy({
+        usernameField: &apos;email&apos;,
+        passwordField: &apos;senha&apos;,
+        session: false
+    }, async (email, senha, next) =&gt; {
+        try {
+            const usuario = new Usuario({ email })
+            await usuario.buscarPorEmail()
+            verificaUsuario(usuario)
+            await verificaSenha(senha, usuario.senha)
+            next(null, usuario)
+        } catch (error) {
+            next(error)
+        }
+
+    })
+)
+/**
+ * Implementa a estrat&#xE9;gia a ser usada nas rotas que devem ser protegidas
+ */
+passport.use(
+    new BearerStrategy(
+        async (token, next) =&gt; {
+            try {
+                const id = await tokens.access.verifica(token)
+                const usuario = new Usuario({ id })
+                await usuario.buscarPorId()
+                next(null, usuario, { token })
+            } catch (error) {
+                next(error)
+            }
+        }
+    )
+)</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
